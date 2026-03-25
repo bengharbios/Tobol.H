@@ -1,0 +1,1448 @@
+     
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>طبول الحرب</title>
+      <style>
+      .swal2-popup {
+  height: 100% !important; /* vh stands for viewport height, i.e., 100% of the height of the viewport */
+}
+
+      .swal2-show {
+    animation: swal2-show 2.3s!important;
+}
+
+      // In your CSS:
+.custom-popup-class {
+  background-color: color;
+}
+      .swal2-html-container {
+         font-size: 23px !important;
+         margin: 11px !important;
+         text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    /* -webkit-text-stroke: 1px #fff; */
+}
+
+         @font-face {
+         font-family: CustomFont;
+         src: url("fonts/a-massir-ballpoint.ttf");
+         }
+         
+         @font-face {
+         font-family: titri;
+         src: url("fonts/TIDO-B.otf");
+         }
+         @font-face {
+         font-family: titri;
+         src: url("fonts/222.ttf");
+         unicode-range: U+30-39;
+         }
+         .gameTable, .title, .mySelect, .startBtn, .myBtn  {
+         text-align: center;
+         }
+         html {
+         height: 100%;
+         }
+         body {
+         min-height: 100%;
+         font-family: titri;
+         }
+         /******************************************/
+         /* The snackbar - position it at the bottom and in the middle of the screen */
+         #snackbar {
+         visibility: hidden; /* Hidden by default. Visible on click */
+         min-width: 250px; /* Set a default minimum width */
+         margin-left: -125px; /* Divide value of min-width by 2 */
+         background-color: #333; /* Black background color */
+         color: #fff; /* White text color */
+         text-align: center; /* Centered text */
+         border-radius: 2px; /* Rounded borders */
+         padding: 16px; /* Padding */
+         position: fixed; /* Sit on top of the screen */
+         z-index: 1; /* Add a z-index if needed */
+         left: 50%; /* Center the snackbar */
+         bottom: 30px; /* 30px from the bottom */
+         }
+         /* Show the snackbar when clicking on a button (class added with JavaScript) */
+         #snackbar.show {
+         visibility: visible; /* Show the snackbar */
+         /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+         However, delay the fade out process for 2.5 seconds */
+         -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+         animation: fadein 0.5s, fadeout 0.5s 2.5s;
+         }
+         /* Animations to fade the snackbar in and out */
+         @-webkit-keyframes fadein {
+         from {bottom: 0; opacity: 0;}
+         to {bottom: 30px; opacity: 1;}
+         }
+         @keyframes fadein {
+         from {bottom: 0; opacity: 0;}
+         to {bottom: 30px; opacity: 1;}
+         }
+         @-webkit-keyframes fadeout {
+         from {bottom: 30px; opacity: 1;}
+         to {bottom: 0; opacity: 0;}
+         }
+         @keyframes fadeout {
+         from {bottom: 30px; opacity: 1;}
+         to {bottom: 0; opacity: 0;}
+         }
+         /******************************************/
+         .myBody {
+         padding:0;
+         margin:0;
+         background-color: #230404;
+         background-size: cover;
+         background-repeat: no-repeat;
+         color: white;
+         -webkit-user-select: none;
+         user-select: none;
+         }
+         /*///////////////////////////////*/
+         .gameDiv {
+         position: relative;
+         margin: 0 auto;
+         width: 98%;
+         max-width: 100vmin;
+         }
+         .settingsTable {
+         table-layout: fixed;
+         margin: 0 auto;
+         width: 100%;
+         border-spacing: 1vmin;
+         border: 1px solid white;
+         }
+         .settingsTable td {
+         border: 1px solid white;
+         }
+         .logoTable {
+         table-layout: fixed;
+         margin: 0 auto;
+         width: 100%;
+         border-collapse: collapse;
+         }
+         [contenteditable] {
+         -webkit-user-select: text;
+         user-select: text;
+         }
+         .announcement{
+         font:26px 'titri';
+         text-decoration: none;
+         user-select: none;
+         color: white;
+         background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0,255,0) 14.28%,
+         rgb(0,255,255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+         background-size: 600vw 600vw;
+         -webkit-text-fill-color: transparent;
+         -webkit-background-clip: text;
+         animation: slide 10s linear infinite forwards;
+         }
+         @keyframes slide {
+         0%{
+         background-position-x: 0%;
+         }
+         100%{
+         background-position-x: 600vw;
+         }
+         }
+         .passText {
+         text-decoration:none;
+         color:white;
+         font:18px 'titri';
+         line-height: 30px;
+         }
+         .inputBody5{
+         text-align: center;
+         height: 40px;
+         font-size: 22px;
+         }
+         /******************************************/
+         .button2 {
+         cursor: pointer;
+         /* text */
+         text-decoration: 		none;
+         font: 					22px titri;
+         font-weight: 			bold;
+         text-shadow: 			rgba(255,255,255,.5) 0 1px 0;
+         -webkit-user-select: 	none;
+         -moz-user-select: 		none;
+         user-select: 			none;
+         /* layout */
+         padding: 				.5em 0em .4em 0em;
+         display: 				inline-block;
+         position: 				relative;
+         -webkit-border-radius: 	8px;
+         -moz-border-radius: 	8px;
+         border-radius: 	8px;
+         /* effects */
+         border-top: 		1px solid rgba(255,255,255,0.8);
+         border-bottom: 		1px solid rgba(0,0,0,0.1);
+         background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) ));
+         background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+         background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) ));
+         -webkit-transition: background .2s ease-in-out;
+         -moz-transition: 	background .2s ease-in-out;
+         transition: 		background .2s ease-in-out;
+         /* color */
+         color: 				hsl(208, 50%, 40%) !important;
+         background-color: 	hsl(208, 100%, 75%);
+         -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+         hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+         rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+         -moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+         hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+         rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+         box-shadow: 		inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+         hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+         rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+         }
+         /******************************************/
+         .gameTable {
+         margin:0 auto;
+         padding: 0;
+         width:100%;
+         table-layout: fixed;
+         border-collapse: collapse;
+         border-spacing: 0;
+         }
+         .gameTable td {
+         }
+         .cardTable {
+         margin:0 auto;
+         padding: 0;
+         width:100%;
+         table-layout: fixed;
+         border-collapse: collapse;
+         border-spacing: 0;
+         background-image: url(img/ligowar/core/card.png);
+         background-size: contain;
+         background-repeat: no-repeat;
+         }
+         .myImage {
+         display: block;
+         }
+         .progressTD {
+         position: relative;
+         background-image: url(img/ligowar/core/progress_bar_empty.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         text-align: right;
+         height: 3vmin;
+         }
+         .progressDivRed {
+         position: absolute;
+         left: 14%;
+         top: 30%;
+         margin:0 auto;
+         padding: 0;
+         background-image: linear-gradient(#b32227, #dc333e, #b32227);
+         height: 2.8vmin;
+         margin-left: -0.2vmin;
+         }
+         .progressDivBlue {
+         position: absolute;
+         right: -1%;
+         top: 30%;
+         margin:0 auto;
+         padding: 0;
+         background-image: linear-gradient(#006599, #17a6d5, #006599);
+         height: 2.8vmin;
+         margin-right: 2.5vmin;
+         }
+         .cardScoreTD {
+         background-image: url(img/ligowar/core/card_points_blue.png);
+         background-size: contain;
+         background-repeat: no-repeat;
+         }
+         .btnTable {
+         margin:0 auto;
+         width:100%;
+         table-layout: fixed;
+         border-spacing: 0.6vmin;
+         }
+         .btnTable td {
+         padding: 0.2vmin;
+         cursor: pointer;
+         border-top: 0.3vmin solid transparent;
+         border-bottom: 0.3vmin solid transparent;
+         }
+         .btnImage {
+         display: block;
+         }
+         .btnTable2 {
+         margin:0 auto;
+         width:100%;
+         table-layout: fixed;
+         border-spacing: 1.3vmin 0.4vmin;
+         }
+         .btnTable2 td {
+         padding: 0.2vmin;
+         cursor: pointer;
+         }
+         .blueBtnTD {
+         background-image: url(img/ligowar/buttons/back/blue.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .redBtnTD {
+         background-image: url(img/ligowar/buttons/back/red.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .greenBtnTD {
+         background-image: url(img/ligowar/buttons/back/green.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .orangeBtnTD {
+         background-image: url(img/ligowar/buttons/back/orange.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .pinkBtnTD {
+         background-image: url(img/ligowar/buttons/back/pink.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .purpleBtnTD {
+         background-image: url(img/ligowar/buttons/back/purple.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .tealBtnTD {
+         background-image: url(img/ligowar/buttons/back/teal.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .yellowBtnTD {
+         background-image: url(img/ligowar/buttons/back/yellow.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .skyBtnTD {
+         background-image: url(img/ligowar/buttons/back/sky.png);
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .rightsImage {
+         position: absolute;
+         top: 96.5%;
+         right: 0%;
+         }
+         .scoreTable {
+         margin:0 auto;
+         padding: 0;
+         width:100%;
+         table-layout: fixed;
+         background-size: 100% 100%;
+         background-repeat: no-repeat;
+         }
+         .teamName {
+         font: 3.5vmin 'titri';;
+         padding-top: 2.5vmin;
+         padding-bottom: 0.25vmin;
+         }
+         .teamScore {
+         font: 4.3vmin 'ltBukraBold';
+         padding-top: 0.25vmin;
+         padding-bottom: 2.5vmin;
+         }
+         .updatetBtn {
+         font:2.7vmin ltBukraBold;
+         line-height:5vmin;
+         cursor: pointer;
+         color: rgb(255, 217, 0);
+         padding-top: 3vmin;
+         }
+         #modalContainer {
+         background-color:rgba(0, 0, 0, 0.3);
+         position:absolute;
+         top:0;
+         width:100%;
+         height:100%;
+         left:0px;
+         z-index:10000;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         background-position: center;
+         background-image:url(https://i.imgur.com/vj6cw1Y.png); /* required by MSIE to prevent actions on lower z-index elements */
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         }
+         #alertBox {
+         position: relative;
+         width: 90%;
+         left: 0px;
+         min-height: 100px;
+         max-height: 400px;
+         border-radius: 25px;
+         margin-top: 50px;
+         border: 1px solid #ffeb3b;
+         background-color: #ffffff;
+         background-repeat: no-repeat;
+         color: red;
+         top: 30%;
+         font: 20px AlHurraBold;
+         }
+         #modalContainer > #alertBox {
+         position:fixed;
+         }
+         #alertBox h1 {
+         margin: 0;
+         /* font: bold 1em Raleway,arial; */
+         background-color: #03a9f4;
+         color: #FFF;
+         border-bottom: 1px solid #cddc39;
+         padding: 10px 0 10px 5px;
+         /* border-radius: 25px; */
+         font-size: 1em;
+         font-family: monospace;
+         border-radius: 25px 25px 0px 0px;
+         }
+         #alertBox p {
+         height:50px;
+         padding-left:5px;
+         padding-top:30px;
+         text-align:center;
+         vertical-align:middle;
+         font-family: 'titri';
+         font-size: 30px;
+         color: #03a9f4;
+         }
+         #alertBox #closeBtn {
+         display: block;
+         position: relative;
+         margin: 10px auto 10px auto;
+         padding: 7px;
+         border: 0 none;
+         width: 70px;
+         text-transform: uppercase;
+         text-align: center;
+         color: #FFF;
+         background-color: #03a9f4;
+         /* border-radius: 0px; */
+         text-decoration: none;
+         outline: 0!important;
+         border-radius: 40px;
+         }
+         /* unrelated styles */
+      </style>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   </head>
+   <body onload="checkPass()" class="myBody" align="middle">
+
+
+      <img onclick="myFunction()" id="logoImg" src="./img/logo.png" width="70%" style="padding-top: 8vmin;" draggable="false">
+      <div id="gameDiv" class="gameDiv" style="display: block;">
+         <table id="gameTable" class="gameTable">
+            <tbody>
+               <tr>
+                  <td rowspan="1" colspan="2"></td>
+                  <td rowspan="1" colspan="33">
+                     <table id="redScoreTable" class="scoreTable" onclick="manualTurn(&#39;red&#39;);" style="background-image: url(&quot;img/ligowar/core/red_score_back.png&quot;);">
+                        <tbody>
+                           <tr>
+                              <td id="blueTeam" class="teamName" contenteditable="true">الجيش الأحمر</td>
+                           </tr>
+                           <tr>
+                              <td oninput="manualScore(this.innerHTML)" id="redScore" class="teamScore" contenteditable="true" style=" font: 4.5vmin 'titri'; ">250</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+                  <td rowspan="1" colspan="50" style="position: relative;">
+                     <img id="logoImgvs" src="./images/vs.png" width="40%" style="padding-top: 2.4vmin;" onclick="changeLogoImage()" draggable="false">
+                     <script>
+                        function generateRandomNumber() {
+                            return Math.floor(Math.random() * 5) + 1; // this will get a number between 1 and 19;
+                        }
+                        
+                        function createNewImagePath() {
+                            var num = generateRandomNumber();
+                            return "img/random/vs/" + num + ".png";
+                        }
+                        
+                        function changeLogoImage() {
+                            var logoImgvs = document.getElementById('logoImgvs');
+                            logoImgvs.src = createNewImagePath();
+                        }
+                        
+                        window.onload = function() {
+                            changeLogoImage();
+                        }
+                     </script>
+                  </td>
+                  <td rowspan="1" colspan="33">
+                     <table id="blueScoreTable" class="scoreTable" onclick="manualTurn(&#39;blue&#39;);" style="background-image: url(&quot;img/ligowar/core/blue_score_back.png&quot;);">
+                        <tbody>
+                           <tr>
+                              <td id="redTeam" class="teamName" contenteditable="true">الجيش الأزرق</td>
+                           </tr>
+                           <tr>
+                              <td oninput="manualScore(this.innerHTML)" id="blueScore" class="teamScore" contenteditable="true" style=" font: 4.5vmin 'titri'; ">250</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+                  <td rowspan="1" colspan="2"></td>
+               </tr>
+               <style>
+                  .css-checkbox {
+                  position: absolute;
+                  overflow: hidden;
+                  clip: rect(0 0 0 0);
+                  height: 1px;
+                  width: 1px;
+                  margin: -1px;
+                  padding: 0;
+                  border: 0;
+                  }
+                  #inputPreview {
+                  display: flex;
+                  gap: 20px;
+                  justify-content: center;
+                  }
+                  .css-checkbox+label {
+                  position: relative;
+                  font-size: 16px;
+                  cursor: pointer;
+                  display: inline-flex;
+                  align-items: center;
+                  height: 36px;
+                  color: rgb(0, 0, 0);
+                  }
+                  .css-checkbox+label::before {
+                  content: " ";
+                  display: inline-block;
+                  vertical-align: middle;
+                  margin-right: 3px;
+                  width: 30px;
+                  height: 30px;
+                  background-color: white;
+                  border-width: 2px;
+                  border-style: solid;
+                  border-color: rgb(255, 0, 0);
+                  border-radius: 20px;
+                  box-shadow: none;
+                  }
+                  .css-checkbox:checked+label::after {
+                  content: " ";
+                  background-image: url("https://www.citypng.com/public/uploads/preview/tick-check-correct-true-done-mark-3d-green-icon-png-11664618654ho7xhidr5e.png");
+                  background-repeat: no-repeat;
+                  background-size: 20px 20px;
+                  background-position: center center;
+                  position: absolute;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-left: 0px;
+                  left: 0px;
+                  top: 0px;
+                  text-align: center;
+                  background-color: transparent;
+                  font-size: 10px;
+                  height: 36px;
+                  width: 36px;
+                  }
+                  
+                  .red-title {
+                      color: #e59e01;
+                    }
+                    
+                    .gold-text {
+                      color: #e59e01;
+                    }
+
+
+
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  color: black;
+  border-radius: 22px;
+}
+
+.colorButton {
+border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+}
+
+
+button {
+      padding: 2px 7px;
+  font-size: 18px;
+  background-color: #008CBA; /* Blue background */
+  border: none;
+  color: white; /* White text */
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  transition-duration: 0.4s;
+  font-family: CustomFont;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+               </style>
+               <tr>
+                  <td rowspan="1" colspan="2"></td>
+                  <td rowspan="1" colspan="33">
+                     <input type="checkbox" id="redCheck" class="css-checkbox" onchange="teamClick(this.id)" checked="checked">
+                     <label for="redCheck"></label>
+                  </td>
+                  <td rowspan="1" colspan="50" style="position: relative;">
+                      
+                      
+                      <img id="seeting" src="img/settings.png" width="20%" style="padding-top: 2.4vmin;" onclick="changeLogoImage()" draggable="false">
+                      
+                      <div id="settingsModal" class="modal">
+                          
+                       <button style=" float: left; margin-left: 5%; " onclick="window.location.href='../index.php'">نسخ قديمة</button>   
+                          
+  <div class="modal-content">
+      
+<h3 style=" font-family: CustomFont; text-align: right; ">إعدادات اللعبة</h3>
+
+<h4 style=" font-family: CustomFont; text-align: right; ">لون الخلفية:</h4>
+
+<button class="colorButton" style="background-color: #b61111;" onclick="changeBackgroundColor('#b61111')"></button>
+<button class="colorButton" style="background-color: #129d12;" onclick="changeBackgroundColor('#129d12')"></button>
+<button class="colorButton" style="background-color: #1b1b74;" onclick="changeBackgroundColor('#1b1b74')"></button>
+<button class="colorButton" style="background-color: #98981d;" onclick="changeBackgroundColor('#98981d')"></button>
+<button class="colorButton" style="background-color: #851385;" onclick="changeBackgroundColor('#851385')"></button>
+<button class="colorButton" style="background-color: #249d9d;" onclick="changeBackgroundColor('#249d9d')"></button>
+<button class="colorButton" style="background-color: #000;" onclick="changeBackgroundColor('#000')"></button>
+
+ <br> <br>
+ 
+ <h4 style=" font-family: CustomFont; text-align: right; ">تغيير اسماء الفرق :</h4>
+ 
+ 
+ <style>
+  /* Style for the input elements */
+  .team-input {
+    border: 1px solid #ccc;
+    font-family: CustomFont;
+    padding: 2px;
+    font-size: 14px;
+    width: 180px;
+    margin-bottom: 10px;
+  }
+</style>
+<!-- Blue Team Input -->
+<input style="float: right;" type="text" id="blueTeamInput" class="team-input" placeholder="أدخل اسم الفريق الأحمر">
+
+<!-- Red Team Input -->
+<input style="float: right;" type="text" id="redTeamInput" class="team-input" placeholder="أدخل اسم الفريق الازرق">
+
+ <br> <br>
+<button id="applyChanges">تطبيق</button>
+<button onclick="cancelSettings()">إلغاء</button>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#applyChanges").click(function(){
+    var newBlueTeamName = $("#blueTeamInput").val();
+    var newRedTeamName = $("#redTeamInput").val();
+
+    if(newBlueTeamName != ""){
+      $("#blueTeam").text(newBlueTeamName);
+    }
+
+    if(newRedTeamName != ""){
+      $("#redTeam").text(newRedTeamName);
+    } cancelSettings();
+  });
+  
+});
+</script>
+  </div>
+  
+</div>
+                      
+  
+  
+  
+  <script>
+      var modal = document.getElementById("settingsModal");
+
+function changeLogoImage() {
+  modal.style.display = "block";
+}
+
+
+ function cancelSettings() {
+  modal.style.display = "none";
+}
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function changeBackgroundColor(color) {
+  document.body.style.backgroundColor = color;
+}
+
+  </script>                    
+                  </td>
+                  <td rowspan="1" colspan="33">
+                     <input type="checkbox" id="blueCheck" class="css-checkbox" onchange="teamClick(this.id)">
+                     <label for="blueCheck"></label>
+                  </td>
+                  <td rowspan="1" colspan="2"></td>
+               </tr>
+               <tr>
+                  <td colspan="1"></td>
+                  <td colspan="12">
+                     <table class="btnTable">
+                        <tbody>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn1" class="redBtnTD">
+                                 <img id="btn1img" class="btnImage" src="./images/butterfly.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn2" class="redBtnTD">
+                                 <img id="btn2img" class="btnImage" src="./images/pigeon.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn3" class="redBtnTD">
+                                 <img id="btn3img" class="btnImage" src="./images/fish.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn4" class="redBtnTD">
+                                 <img id="btn4img" class="btnImage" src="./images/giraffe.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn5" class="pinkBtnTD">
+                                 <img id="btn5img" class="btnImage" src="./images/elephant.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn6" class="pinkBtnTD">
+                                 <img id="btn7img" class="btnImage" src="./images/deer.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn7" class="pinkBtnTD">
+                                 <img id="btn8img" class="btnImage" src="./images/camel.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+                  <td colspan="12">
+                     <table class="btnTable">
+                        <tbody>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn8" class="redBtnTD">
+                                 <img id="btn9img" class="btnImage" src="./images/donkey.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn9" class="redBtnTD">
+                                 <img id="btn10img" class="btnImage" src="./images/duck.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn10" class="redBtnTD">
+                                 <img id="btn11img" class="btnImage" src="./images/frog.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn11" class="pinkBtnTD">
+                                 <img id="btn13img" class="btnImage" src="./images/lion.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn12" class="pinkBtnTD">
+                                 <img id="btn14img" class="btnImage" src="./images/mouse.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn13" class="pinkBtnTD">
+                                 <img id="btn15img" class="btnImage" src="./images/scorbion.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn14" class="pinkBtnTD">
+                                 <img id="btn16img" class="btnImage" src="./images/snail.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+                  <td colspan="3"></td>
+                  <td colspan="64">
+                     <!--<img style="border-radius: 7%; " width="100%" height="100%" src="https://apps.loveligo.com/war/tubol/img/war/war_wpn_images/start.png" align="middle" id="mainPic" name="mainPic">
+                        -->
+                     <img style="border-radius: 7%; " width="100%"  align="middle" id="mainPic" name="mainPic" onclick="changeImage()">
+                     <script>
+                        var canChangeImage = true; // declare it here
+                        
+                        function getRandomImageNumber() {
+                            return Math.floor(Math.random() * 19) + 1; // this will get a number between 1 and 19;
+                        }
+                        
+                        function getImagePath() {
+                            var num = getRandomImageNumber();
+                            return "https://apps.loveligo.com/war/tobol/img/random/" + num + ".png";
+                        }
+                        
+                        function btnClick(event) {
+                            event.stopPropagation(); // stop the event from bubbling up to parent elements
+                            canChangeImage = false; // Change the control variable to false
+                        }
+                        
+                        var canChangeImage = true; // This is our switch. Initially the function is enabled.
+                        
+                        function changeImage() {
+                        if (!canChangeImage) {
+                        // If the function is disabled, we do nothing and return immediately.
+                        return;
+                        }
+                        
+                        var mainPic = document.getElementById('mainPic');
+                        mainPic.src = getImagePath();
+                        }
+                        
+                        
+                        window.onload = function() {
+                            changeImage();
+                        }
+                     </script>
+                  </td>
+                  <td colspan="3"></td>
+                  <td colspan="12">
+                     <table class="btnTable">
+                        <tbody>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn15" class="blueBtnTD">
+                                 <img id="btn17img" class="btnImage" src="./images/magnifier.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn16" class="blueBtnTD">
+                                 <img id="btn18img" class="btnImage" src="./images/camera.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn17" class="blueBtnTD">
+                                 <img id="btn19img" class="btnImage" src="./images/cressent.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn18" class="skyBtnTD">
+                                 <img id="btn21img" class="btnImage" src="./images/eye.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn19" class="skyBtnTD">
+                                 <img id="btn22img" class="btnImage" src="./images/heart.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn20" class="skyBtnTD">
+                                 <img id="btn23img" class="btnImage" src="./images/house.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn21" class="skyBtnTD">
+                                 <img id="btn24img" class="btnImage" src="./images/key.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+                  <td colspan="12">
+                     <table class="btnTable">
+                        <tbody>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn22" class="blueBtnTD">
+                                 <img id="btn25img" class="btnImage" src="./images/lamp.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn23" class="blueBtnTD">
+                                 <img id="btn26img" class="btnImage" src="./images/music.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn24" class="blueBtnTD">
+                                 <img id="btn27img" class="btnImage" src="./images/message.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn25" class="blueBtnTD">
+                                 <img id="btn28img" class="btnImage" src="./images/star.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn26" class="skyBtnTD">
+                                 <img id="btn29img" class="btnImage" src="./images/plane.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn27" class="skyBtnTD">
+                                 <img id="btn30img" class="btnImage" src="./images/phone.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                           <tr>
+                              <td onclick="btnClick(this.id)" id="btn28" class="skyBtnTD">
+                                 <img id="btn32img" class="btnImage" src="./images/pencil.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+                  <td colspan="1"></td>
+               </tr>
+               <tr>
+                  <td colspan="120">
+                     <table class="btnTable2">
+                        <tbody>
+                           <tr>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn29" class="purpleBtnTD">
+                                 <img id="btn33img" class="btnImage" src="./images/cow.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn30" class="purpleBtnTD">
+                                 <img id="btn34img" class="btnImage" src="./images/rabbit.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn31" class="yellowBtnTD">
+                                 <img id="btn35img" class="btnImage" src="./images/1.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn32" class="yellowBtnTD">
+                                 <img id="btn36img" class="btnImage" src="./images/2.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn33" class="greenBtnTD">
+                                 <img id="btn37img" class="btnImage" src="./images/3.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn34" class="greenBtnTD">
+                                 <img id="btn38img" class="btnImage" src="./images/4.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn35" class="orangeBtnTD">
+                                 <img id="btn39img" class="btnImage" src="./images/5.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn40" class="orangeBtnTD">
+                                 <img id="btn40img" class="btnImage" src="./images/6.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn36" class="tealBtnTD">
+                                 <img id="btn41img" class="btnImage" src="./images/bomb.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn37" class="tealBtnTD">
+                                 <img id="btn42img" class="btnImage" src="./images/case.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="120">
+                     <table class="btnTable2">
+                        <tbody>
+                           <tr>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn38" class="purpleBtnTD">
+                                 <img id="btn43img" class="btnImage" src="./images/roaster.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn39" class="purpleBtnTD">
+                                 <img id="btn44img" class="btnImage" src="./images/snake.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn41" class="yellowBtnTD">
+                                 <img id="btn45img" class="btnImage" src="./images/7.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn42" class="yellowBtnTD">
+                                 <img id="btn46img" class="btnImage" src="./images/8.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn43" class="greenBtnTD">
+                                 <img id="btn47img" class="btnImage" src="./images/9.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn44" class="greenBtnTD">
+                                 <img id="btn48img" class="btnImage" src="./images/10.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn49" class="orangeBtnTD">
+                                 <img id="btn49img" class="btnImage" src="./images/11.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn50" class="orangeBtnTD">
+                                 <img id="btn50img" class="btnImage" src="./images/12.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn45" class="tealBtnTD">
+                                 <img id="btn51img" class="btnImage" src="./images/feather.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn46" class="tealBtnTD">
+                                 <img id="btn52img" class="btnImage" src="./images/lock.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="120">
+                     <table class="btnTable2">
+                        <tbody>
+                           <tr>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn47" class="purpleBtnTD">
+                                 <img id="btn53img" class="btnImage" src="./images/sparrow.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn48" class="purpleBtnTD">
+                                 <img id="btn54img" class="btnImage" src="./images/turtle.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn51" class="yellowBtnTD">
+                                 <img id="btn55img" class="btnImage" src="./images/13.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn52" class="yellowBtnTD">
+                                 <img id="btn56img" class="btnImage" src="./images/14.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn53" class="greenBtnTD">
+                                 <img id="btn57img" class="btnImage" src="./images/15.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn58" class="greenBtnTD">
+                                 <img id="btn58img" class="btnImage" src="./images/16.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn59" class="orangeBtnTD">
+                                 <img id="btn59img" class="btnImage" src="./images/17.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn60" class="orangeBtnTD">
+                                 <img id="btn60img" class="btnImage" src="./images/18.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn54" class="tealBtnTD">
+                                 <img id="btn61img" class="btnImage" src="./images/magnet.png" width="100%" draggable="false">
+                              </td>
+                              <td colspan="6" onclick="btnClick(this.id)" id="btn55" class="tealBtnTD">
+                                 <img id="btn62img" class="btnImage" src="./images/globe.png" width="100%" draggable="false">
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </td>
+               </tr>
+               <!--<tr>
+                  <td colspan="120">
+                  <table class="btnTable2">
+                  <tbody>
+                      
+                      <tr>
+                          
+                          <td colspan="6"  id="btn61" class="">
+                  <img id="btn65img" class="btnImage"  width="100%" draggable="false">
+                  </td>
+                  <td colspan="6" id="btn62" class="">
+                  <img id="btn66img" class="btnImage" width="100%" draggable="false">
+                  </td>
+                  
+                  
+                  <td colspan="6" onclick="btnClick(this.id)" id="btn56" class="purpleBtnTD">
+                  <img id="btn63img" class="btnImage" src="./images/spider.png" width="100%" draggable="false">
+                  </td>
+                  <td colspan="6" onclick="btnClick(this.id)" id="btn57" class="purpleBtnTD">
+                  <img id="btn64img" class="btnImage" src="./images/dog.png" width="100%" draggable="false">
+                  </td>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <td colspan="6" onclick="btnClick(this.id)" id="btn61" class="yellowBtnTD">
+                  <img id="btn65img" class="btnImage" src="./images/19.png" width="100%" draggable="false">
+                  </td>
+                  <td colspan="6" onclick="btnClick(this.id)" id="btn62" class="yellowBtnTD">
+                  <img id="btn66img" class="btnImage" src="./images/20.png" width="100%" draggable="false">
+                  </td>
+                  
+                  
+                  
+                  
+                  
+                  
+                  <td colspan="6" onclick="btnClick(this.id)" id="btn63" class="tealBtnTD">
+                  <img id="btn71img" class="btnImage" src="./images/hand.png" width="100%" draggable="false">
+                  </td>
+                  <td colspan="6" onclick="btnClick(this.id)" id="btn64" class="tealBtnTD">
+                  <img id="btn72img" class="btnImage" src="./images/apple.png" width="100%" draggable="false">
+                  </td>
+                  
+                  
+                  
+                  <td colspan="6"  id="btn61" class="">
+                  <img id="btn65img" class="btnImage"  width="100%" draggable="false">
+                  </td>
+                  <td colspan="6" id="btn62" class="">
+                  <img id="btn66img" class="btnImage" width="100%" draggable="false">
+                  </td>
+                  
+                  
+                  </tr>
+                  </tbody></table>
+                  </td>
+                  </tr>-->
+                  
+   
+
+
+            
+            
+            
+            
+            
+            
+            
+   
+               <script>
+                  function myFunction() {
+                    var x = document.getElementById("myDIV");
+                    if (x.style.display === "none") {
+                      x.style.display = "block";
+                    } else {
+                      x.style.display = "none";
+                    }
+                  }
+               </script>
+            </tbody>
+         </table>
+      </div>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+      <script>
+         function HandleBrowseClick(input_image)
+         {
+         var fileinput = document.getElementById(input_image);
+         fileinput.click();
+         }    
+         
+         
+         
+         function HandleBrowseClick1(input_image)
+         {
+         var fileinput = document.getElementById(input_image);
+         fileinput.click();
+         }  
+         
+         
+         
+         var _0x4e56 = ["26.png", "blueScore", "05.png", "innerHTML", "announce", "16.png", "backgroundColor", "blueTeam", "30.png", "20.png", "22.png", "msg", "49.png", "Copy", "45.png", "data", "floor", "text", "31.png", "mainPic", "58.png", "51.png", "32.png", "removeAttribute", "09.png", "42.png", "redTeam", "firestore", "all", "innerText", "execCommand", "27.png", "56.png", "color", "collection", "52.png", "02.png", "alert", "addEventListener", "redCheck", "08.png", "47.png", "25.png", "href", "redScore",
+         "value", "toString", "sendAlert", "13.png", "24.png", "getElementById", "41.png", "23.png", "11.png", "src", "select", "onSnapshot", "07.png", "35.png", "06.png", "removeChild", "14.png", "38.png", "#32CD32", "55.png", "Loveligo", "myAnnounceMsg", "12.png", "03.png", "59.png", "10.png", "DOMContentLoaded", "btn", "doc", "57.png", "18.png", "21.png", "myAnnounceLink", "img/war/war_wpn_images/", "مبروك لقد انتصر فريق ",
+         "34.png", "transparent", "checked", "style", "substring", "40.png", "37.png", "appendChild", "19.png", "48.png", "createElement", "04.png", "blueCheck", "36.png", "60.png", "15.png"
+         ];
+         (function(data, i) {
+         var validateGroupedContexts = function fn(selected_image) {
+         for (; --selected_image;) {
+         data["push"](data["shift"]());
+         }
+         };
+         validateGroupedContexts(++i);
+         })(_0x4e56, 467);
+         var _0x2792 = function PocketDropEvent(ballNumber, opt_target) {
+         ballNumber = ballNumber - 0;
+         var ball = _0x4e56[ballNumber];
+         return ball;
+         };
+         var _0x3edfd6 = _0x2792;
+         var arms = [
+         ["01.png", 35, 0],
+         ["02.png", 18, 0],
+         ["03.png", 20, 0],
+         ["04.png", 11, 0],
+         ["05.png", 6, 0],
+         ["06.png", 9, 0],
+         ["07.png", 8, 0],
+         ["08.png", 10, 0],
+         ["09.png", 0, 0],
+         ["10.png", 0, 7],
+         ["11.png", 6, 0],
+         ["12.png", 1, 0],
+         ["13.png", 0, 4],
+         ["14.png", 7, 0],
+         ["15.png", 9, 0],
+         ["16.png", 0, 6],
+         ["17.png", 3, 0],
+         ["18.png", 16, 0],
+         ["19.png", 10, 0],
+         ["20.png", 15, 0],
+         ["21.png", 16, 0],
+         ["22.png", 14, 0],
+         ["23.png", 6, 0],
+         ["24.png", 4, 0],
+         ["25.png", 5, 0],
+         ["26.png", 0, 25],
+         ["27.png", 0, 0],
+         ["28.png", 0, 0],
+         ["29.png", 22, 0],
+         ["30.png", 0, 15],
+         ["31.png", 2, 0],
+         ["32.png", 9, 0],
+         ["33.png", 0, 2],
+         ["34.png", 13, 0],
+         ["35.png", 25, 0],
+         ["36.png", 0, 10],
+         ["37.png", 3, 0],
+         ["38.png", 0, 8],
+         ["39.png",0, 1],
+         ["40.png", 19, 0],
+         ["41.png", 0, 7],
+         ["42.png", 0, 4],
+         ["43.png", 6, 0],
+         ["44.png", 0, 10],
+         ["45.png", 0, 0],
+         ["46.png", 0, 6],
+         ["47.png", 0, 9],
+         ["48.png", 0, 3],
+         ["49.png", 0, 4],
+         ["50.png", 2, 0],
+         ["51.png", 0, 6],
+         ["52.png", 4, 0],
+         ["53.png", 3, 0],
+         ["54.png", 2, 0],
+         ["55.png", 3, 0],
+         ["56.png", 0, 9],
+         ["57.png", 6, 0],
+         ["58.png", 0, 4],
+         ["59.png", 7, 0],
+         ["60.png",0, 1],
+         ["61.png", 0, 6],
+         ["62.png", 9, 0],
+         ["63.png", 0, 0],
+         ["64.png", 7, 0]
+         
+         ];
+         
+         
+         var done = !![];
+         var redScore;
+         var blueScore;
+         shuffle(arms);
+         function shuffle(arr) {
+         var randInt_1 = _0x3edfd6;
+         var i = arr["length"];
+         var tmp;
+         var rnd;
+         for (; 0 !== i;) {
+         rnd = Math[randInt_1("0x1d")](Math["random"]() * i);
+         i = i - 1;
+         tmp = arr[i];
+         arr[i] = arr[rnd];
+         arr[rnd] = tmp;
+         }
+         return arr;
+         }
+         
+         
+         
+         function btnClick(event) {
+         var stopPropagation = _0x3edfd6;
+         setGo(Number(event[stopPropagation("0x1")](3, 6)) - 1);
+         
+         // Get the table cell (td) element by its ID
+         var tdElement = document.getElementById(event);
+         
+         // Hide the contents of the table cell (td) element without affecting the layout
+         tdElement.style.visibility = "hidden";
+         
+         // After the button is clicked, we disable the changeImage function.
+         canChangeImage = false;
+         }
+         
+         /*function btnClick(event) {
+         var stopPropagation = _0x3edfd6;
+         return setGo(Number(event[stopPropagation("0x1")](3, 6)) - 1);
+         }*/
+         
+         
+         function setGo(c) {
+  var prefixed = _0x3edfd6;
+
+  document[prefixed("0x3f")](prefixed("0x20"))[prefixed("0x43")] = prefixed("0x5b") + arms[c][0];
+  redScore = Number(document[prefixed("0x3f")](prefixed("0x39"))[prefixed("0x2a")]);
+  blueScore = Number(document["getElementById"](prefixed("0xe"))[prefixed("0x2a")]);
+
+  if (document[prefixed("0x3f")](prefixed("0x34"))[prefixed("0x5f")]) {
+    if (arms[c][1] == 0) {
+      redScore = redScore - arms[c][2];
+    } else {
+      blueScore = blueScore - arms[c][1];
+    }
+  } else {
+    if (arms[c][1] == 0) {
+      blueScore = blueScore - arms[c][2];
+    } else {
+      redScore = redScore - arms[c][1];
+    }
+  }
+
+  document[prefixed("0x3f")](prefixed("0x39"))[prefixed("0x2a")] = redScore[prefixed("0x3b")]();
+  document[prefixed("0x3f")](prefixed("0xe"))[prefixed("0x2a")] = blueScore[prefixed("0x3b")]();
+  document[prefixed("0x29")][prefixed("0x55") + (c + 1)["toString"]()][prefixed("0x0")][prefixed("0x13")] = prefixed("0x5e");
+  document[prefixed("0x29")][prefixed("0x55") + (c + 1)[prefixed("0x3b")]()][prefixed("0x24")]("onClick");
+
+  if (document[prefixed("0x3f")](prefixed("0x9"))[prefixed("0x5f")]) {
+    teamClick(prefixed("0x34"));
+  } else {
+    teamClick("blueCheck");
+  }
+
+  if (blueScore <= 0) {
+    if (done) {
+      alert("مبروك لقد انتصر فريق " + document[prefixed("0x3f")](prefixed("0x14"))[prefixed("0x2a")], "red");
+      done = ![];
+    }
+    document[prefixed("0x3f")](prefixed("0x18"))[prefixed("0x0")][prefixed("0x2e")] = prefixed("0x4c");
+    document[prefixed("0x3f")](prefixed("0x18"))[prefixed("0x2a")] = "مبروك لقد انتصر فريق " + document[prefixed("0x3f")](prefixed("0x14"))[prefixed("0x2a")];
+  } else {
+    if (redScore <= 0) {
+      if (done) {
+        alert("مبروك لقد انتصر فريق " + document["getElementById"](prefixed("0x27"))[prefixed("0x2a")], "blue");
+        done = ![];
+      }
+      document[prefixed("0x3f")](prefixed("0x18"))[prefixed("0x0")][prefixed("0x2e")] = "#2196F3";
+      document[prefixed("0x3f")](prefixed("0x18"))[prefixed("0x2a")] = "مبروك لقد انتصر فريق " + document["getElementById"](prefixed("0x27"))[prefixed("0x2a")];
+    }
+  }
+}
+
+
+
+
+         
+         function teamClick(node_1_index) {
+         var node_index = _0x3edfd6;
+         if (node_1_index == node_index("0x34")) {
+         document[node_index("0x3f")]("blueCheck")[node_index("0x5f")] = ![];
+         document["getElementById"](node_index("0x34"))[node_index("0x5f")] = !![];
+         } else {
+         if (node_1_index == node_index("0x9")) {
+         document[node_index("0x3f")](node_index("0x34"))[node_index("0x5f")] = ![];
+         document[node_index("0x3f")](node_index("0x9"))[node_index("0x5f")] = !![];
+         }
+         }
+         }
+  
+         
+         
+         
+         
+
+
+function showAlert(txt, color) {
+  Swal.fire({
+    showCloseButton: true,
+    showConfirmButton: false,
+    //  title: '<span style="color: ' + color + ';">txt</span>',
+    html: '<span style="color: ' + color + ';">' + txt + '</span>',
+    imageUrl: 'https://i.ibb.co/J7bYyZ5/7-Ge-Chong-Jiang-Pai-110143-118-1.png',
+    imageWidth: 222,
+    imageAlt: 'Custom image',
+    allowOutsideClick: false,
+    background: 'url(https://i.ibb.co/hLB8PS6/Rainbow-Giveaway-Time-Flyer.png) center / cover',
+    customClass: {
+      popup: 'custom-popup-class'
+    },
+    backdrop: `
+      rgba(0,0,123,0.4),
+      url("https://apps.loveligo.com/war/tobol/img/win.png")
+      left top
+      no-repeat
+    `
+  });
+}
+
+
+
+
+window.alert = function (txt, color = '#fff') {
+  showAlert(txt, color);
+};
+
+
+
+if (blueScore <= 0) {
+  if (done) {
+    alert(prefixed("0x5c") + document["getElementById"](prefixed("0x14"))[prefixed("0x2a")], 'blue');
+    done = ![];
+  }
+  
+  
+} else {
+  if (redScore <= 0) {
+    if (done) {
+      alert(prefixed("0x5c") + document[prefixed("0x3f")](prefixed("0x27"))[prefixed("0x2a")], 'red');
+      done = ![];
+    }
+    
+    
+  } }
+
+
+
+
+
+
+
+        
+         function ful(){
+         alert('Alert this pages');
+         }
+         
+      </script>
+      <script src="https://loveligo.com/apps/cdn/check_rame.js"></script>
+   </body>
+</html>
