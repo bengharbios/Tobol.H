@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'titri';
+  src: url('/fonts/TIDO-B.otf');
+}
+
+@layer base {
+  body {
+    @apply m-0 p-0 select-none;
+    font-family: 'titri', 'Cairo', sans-serif;
+    background-color: #0a0b10;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px #fff;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  }
+
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-in {
+    animation: slideInFromBottom 0.8s ease-out forwards;
+  }
+
+  .dir-rtl {
+    direction: rtl;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.btn-red {
+  background-image: url('/img/ligowar/buttons/back/red.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-pink {
+  background-image: url('/img/ligowar/buttons/back/pink.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-blue {
+  background-image: url('/img/ligowar/buttons/back/blue.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-sky {
+  background-image: url('/img/ligowar/buttons/back/sky.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-purple {
+  background-image: url('/img/ligowar/buttons/back/purple.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-orange {
+  background-image: url('/img/ligowar/buttons/back/orange.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-green {
+  background-image: url('/img/ligowar/buttons/back/green.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-teal {
+  background-image: url('/img/ligowar/buttons/back/teal.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.btn-yellow {
+  background-image: url('/img/ligowar/buttons/back/yellow.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.score-blue-bg {
+  background-image: url('/img/ligowar/core/blue_score_back.png');
+  background-size: 100% 100%;
+}
+
+.score-red-bg {
+  background-image: url('/img/ligowar/core/red_score_back.png');
+  background-size: 100% 100%;
+}
+
+.bg-progress-empty {
+  background-image: url('/img/ligowar/core/progress_bar_empty.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.progress-fill-red {
+  background-image: linear-gradient(#b32227, #dc333e, #b32227);
+}
+
+.progress-fill-blue {
+  background-image: linear-gradient(#006599, #17a6d5, #006599);
+}
+
+.card-bg {
+  background-image: url('/img/ligowar/core/card.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Original Game Table Structures EXACTLY from source */
+.gameDiv {
+  position: relative;
+  width: 95vw;
+  max-width: 100vmin;
+  margin: auto;
+  padding: 2vh 0 10vh 0;
+}
+
+.gameTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.btnTable {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0.8vmin;
+  border-collapse: separate;
+}
+
+.btnTable td {
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.btnTable td:active {
+  transform: scale(0.9);
+}
+
+.btnTable2 {
+  margin: 0 auto;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 1.3vmin 0.4vmin;
+  border-collapse: separate;
+}
+
+.btnTable2 td {
+  padding: 0.2vmin;
+  cursor: pointer;
+}
+
+.scoreTable {
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.teamName {
+  font-size: 3.5vmin;
+  color: white;
+  padding-top: 1vmin;
+}
+
+.teamScore {
+  font-size: 4.5vmin;
+  color: white;
+  padding-bottom: 0.5vmin;
+}
+
+.active-turn-red {
+  box-shadow: 0 0 35px 15px rgba(255, 0, 0, 0.4);
+  transform: scale(1.05);
+  z-index: 10;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid white;
+}
+
+.active-turn-blue {
+  box-shadow: 0 0 35px 15px rgba(0, 0, 255, 0.4);
+  transform: scale(1.05);
+  z-index: 10;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid white;
+}
+
+.inactive-turn {
+  opacity: 0.5;
+  filter: grayscale(60%);
+  transition: all 0.3s ease;
+}
+
+.css-checkbox-red,
+.css-checkbox-blue {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.css-checkbox-red+label,
+.css-checkbox-blue+label {
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  color: rgb(0, 0, 0);
+  justify-content: center;
+  width: 100%;
+}
+
+.css-checkbox-red+label::before {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border: 3px solid #ff0000;
+  border-radius: 50%;
+}
+
+.css-checkbox-blue+label::before {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border: 3px solid #0000ff;
+  border-radius: 50%;
+}
+
+.css-checkbox-red:checked+label::after,
+.css-checkbox-blue:checked+label::after {
+  content: " ";
+  background-image: url('/images/tick.png');
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: center center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  height: 36px;
+  width: 36px;
+}
